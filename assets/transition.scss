@@ -1,0 +1,32 @@
+$duration: 0.25s ease;
+
+// On change layout
+.layout {
+  &-enter-active, &-leave-active {
+    transition: opacity $duration;
+  }
+  &-enter, &-leave-active{
+    opacity: 0
+  }
+}
+
+// On change routes
+.page {
+  &-enter-active, &-leave-active {
+    transition: all $duration;
+  }
+  &-enter, &-leave-active {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+// On reload page
+.fade {
+  &-enter-active, &-leave-active {
+    transition: opacity $duration;
+  }
+  &-enter, &-leave-active{
+    opacity: 0
+  }
+}

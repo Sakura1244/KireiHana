@@ -1,0 +1,12 @@
+// Vuetify class overide
+.v-main__wrap {
+  margin: auto;
+  z-index: 1;
+}
+
+.v-application {
+  transition: 0.35s ease;
+  .theme--light, .theme--dark {
+    transition: 0.35s ease;
+  }
+}
