@@ -4,7 +4,7 @@
       v-model="isLoaded"
       fixed
       app
-      :height="55"
+      :height="40"
       flat
       color="primary"
     >
@@ -35,7 +35,7 @@
       v-model="isLoaded"
       fixed
       app
-      :height="55"
+      :height="40"
       flat
       bottom
       color="primary"
@@ -48,50 +48,6 @@
     </v-overlay>
   </v-app>
 </template>
-
-<style lang="scss">
-.background-cover {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.06;
-  z-index: 0;
-
-  .particle-1 {
-    position: absolute;
-    top: 50px;
-    right: 0px;
-    transform: rotate(60deg);
-  }
-  .particle-2 {
-    position: absolute;
-    bottom: 60px;
-    left: 0;
-    transform: rotate(45deg);
-  }
-
-  .particle-3 {
-    position: absolute;
-    top: -100px;
-    left: -230px;
-    width: 400px;
-    height: 400px;
-    border-radius: 100%;
-    border: 100px solid var(--v-primary-base);
-  }
-  .particle-4 {
-    position: absolute;
-    bottom: -100px;
-    right: -230px;
-    width: 400px;
-    height: 400px;
-    border-radius: 100%;
-    border: 100px solid var(--v-primary-base);
-  }
-}
-</style>
 
 <script>
 import Logo from '@/static/logo/logo.png'

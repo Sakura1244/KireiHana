@@ -4,7 +4,7 @@
       <v-flex xs5 sm4 md4>
         <kinesis-container>
           <kinesis-element
-            :strength="20"
+            :strength="strengthKinesis"
             type="depth"
             transform-origin="50% 50%"
           >
@@ -15,8 +15,20 @@
                 width="100%"
                 contain
                 :src="logo"
+                :lazy-src="logo"
+                aspect-ratio="1"
                 @click="toggleTheme"
-              />
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular indeterminate color="primarylight" />
+                  </v-row>
+                </template>
+              </v-img>
             </v-slide-y-transition>
           </kinesis-element>
         </kinesis-container>
@@ -134,6 +146,12 @@ export default {
         case true: return '100%'
         case false: return '100%'
         default: return '100%'
+      }
+    },
+    strengthKinesis () {
+      switch (this.$vuetify.breakpoint.smAndDown) {
+        case true: return 0
+        default: return 20
       }
     }
   },
