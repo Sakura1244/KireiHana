@@ -33,12 +33,12 @@
               xs12
               sm6
               lg4
-              class="pa-4"
+              class="pa-1 pa-md-2 pa-lg-4"
             >
-              <v-card outlined class="pa-4">
-                <v-layout class="px-4" column wrap justify-center align-center>
+              <v-card outlined class="pa-2 pa-md-4">
+                <v-layout class="px-md-4" column wrap justify-center align-center>
                   <v-avatar
-                    size="120"
+                    :size="avatarSize"
                     color="primarylight"
                     class="ma-auto"
                   >
@@ -65,37 +65,37 @@
                       </template>
                     </v-img>
                   </v-avatar>
-                  <v-flex xs12 class="text-center my-3">
+                  <v-flex xs12 class="text-center my-2 my-md-3">
                     <v-card-title class="info-container pa-0 justify-center" primary-title>
                       <div>
-                        <h2 v-if="item.username" class="text-h6 text-truncate">
+                        <h2 v-if="item.username" class="text-body-1 text-md-h6 text-truncate">
                           {{ item.username }}
                         </h2>
-                        <h2 v-else class="text-h6 text-truncate">
+                        <h2 v-else class="text-body-1 text-md-h6 text-truncate">
                           -
                         </h2>
                       </div>
                     </v-card-title>
                     <v-flex xs12 class="pa-0">
-                      <p v-if="item.status !== 0" class="text-capitalize text-truncate">
+                      <p v-if="item.status !== 0" class="text-body-2 text-capitalize text-truncate">
                         {{ item.status }}
                       </p>
-                      <p v-else class="text-capitalize text-truncate">
+                      <p v-else class="text-body-2 text-capitalize text-truncate">
                         -
                       </p>
                     </v-flex>
-                    <v-card-text class="text-center mt-3 pa-0">
+                    <v-card-text class="text-center mt-0 mt-lg-3 pa-0">
                       <div class="text-container px-2 px-md-6">
-                        <p v-if="item.bio !== 0" class="ma-0 text-truncate">
+                        <p v-if="item.bio !== 0" class="text-body-2 ma-0 text-truncate">
                           {{ item.bio }}
                         </p>
-                        <p v-else class="ma-0 text-truncate">
+                        <p v-else class="text-body-2 ma-0 text-truncate">
                           -
                         </p>
                       </div>
                     </v-card-text>
                   </v-flex>
-                  <v-divider class="mb-3" style="width: 100%" />
+                  <v-divider class="mb-2 mb-md-3" style="width: 90%" />
                   <v-flex xs12>
                     <v-btn
                       class="white--text mx-1"
@@ -108,7 +108,9 @@
                       target="_blank"
                       link
                     >
-                      <v-icon>mdi-instagram</v-icon>
+                      <v-icon small>
+                        mdi-instagram
+                      </v-icon>
                     </v-btn>
                     <v-btn
                       class="white--text mx-1"
@@ -121,7 +123,9 @@
                       target="_blank"
                       link
                     >
-                      <v-icon>mdi-youtube</v-icon>
+                      <v-icon small>
+                        mdi-youtube
+                      </v-icon>
                     </v-btn>
                   </v-flex>
                 </v-layout>
@@ -147,6 +151,18 @@ export default {
     logo,
     loaded: false
   }),
+  computed: {
+    avatarSize () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return '70'
+        case 'sm': return '70'
+        case 'md': return '100'
+        case 'lg': return '100'
+        case 'xl': return '100'
+        default: return '100'
+      }
+    }
+  },
   mounted () {
     setTimeout(() => {
       this.loaded = true
