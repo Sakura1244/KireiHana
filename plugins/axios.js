@@ -4,10 +4,20 @@ export default function ({ $axios, redirect }, inject) {
 
   youtube.onRequest((config) => {
   })
-  youtube.onError(() => {
-    // const code = parseInt(error.response && error.response.status)
-    redirect('/error')
+  youtube.onError((error) => {
+    const code = parseInt(error.response && error.response.status)
+    redirect(`/${code}`)
+  })
+
+  const spreadsheet = $axios.create()
+  spreadsheet.setBaseURL('https://spreadsheet-json.vercel.app/api')
+  spreadsheet.onRequest((config) => {
+  })
+  spreadsheet.onError((error) => {
+    const code = parseInt(error.response && error.response.status)
+    redirect(`/${code}`)
   })
 
   inject('youtube', youtube)
+  inject('spreadsheet', spreadsheet)
 }

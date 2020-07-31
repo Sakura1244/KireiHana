@@ -34,7 +34,7 @@ export const actions = {
   async getProducts ({ dispatch, commit }) {
     const params = {
       part: 'snippet,contentDetails',
-      playlistId: 'PLAwlsUFueMd_jAA3tEPQ30liTkVdRQDP3',
+      playlistId: process.env.playlistId,
       key: process.env.key
     }
     try {
@@ -50,11 +50,11 @@ export const actions = {
   },
   async getTeam ({ dispatch, commit }) {
     const params = {
-      id: '1G2sTOq6CNIIOaw2cAZ630u89iMpWZ3dhSMqCKK4IRUw'
+      id: process.env.spreadsheetId
     }
     try {
       dispatch('setLoading', true)
-      const res = await this.$axios.get('https://spreadsheet-json.vercel.app/api', { params })
+      const res = await this.$spreadsheet.get('', { params })
       const data = res.data.rows
       commit('SET_TEAM', data)
     } catch (err) {
