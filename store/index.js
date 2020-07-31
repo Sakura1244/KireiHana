@@ -54,7 +54,7 @@ export const actions = {
     }
     try {
       dispatch('setLoading', true)
-      const res = await this.$axios.get('https://spreadsheet-to-json.vercel.app/api', { params })
+      const res = await this.$axios.get('https://spreadsheet-json.vercel.app/api', { params })
       const data = res.data.rows
       commit('SET_TEAM', data)
     } catch (err) {
