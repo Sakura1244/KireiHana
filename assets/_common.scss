@@ -69,6 +69,26 @@ a {
 }
 
 
+// About
+.info-container {
+  width: auto;
+  position: relative;
+
+  div {
+    position: relative;
+    max-width: 100%;
+
+    a {
+      text-decoration: none !important;
+      color: unset;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+  }
+}
+
 
 .background-cover {
   width: 100%;

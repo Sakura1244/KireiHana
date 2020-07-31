@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -25,17 +28,26 @@ export default {
     ]
   },
   /*
+  ** Customize the progress-bar color
+  */
+  loading: {
+    color: '#F3F3F3',
+    height: '4px'
+  },
+  /*
   ** Global CSS
   */
   css: [
     '~/assets/transition.scss',
-    '~/assets/vuetify-overide.scss',
+    '~/assets/vuetify-overide.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/axios',
+    { src: '~/plugins/youtube.js', ssr: false }
   ],
   /*
   ** Custom Layout & Page Transition
@@ -65,6 +77,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content'
   ],

@@ -1,11 +1,12 @@
 <template>
   <v-app dark>
     <v-app-bar
-      v-model="isLoaded"
+      v-model="appBar"
       fixed
       app
       :height="40"
       flat
+      hide-on-scroll
       color="primary"
     >
       <v-container grid-list-xs>
@@ -32,12 +33,13 @@
     </div>
 
     <v-app-bar
-      v-model="isLoaded"
+      v-model="appBar"
       fixed
       app
       :height="40"
       flat
       bottom
+      hide-on-scroll
       color="primary"
     />
 
@@ -56,6 +58,7 @@ export default {
   data () {
     return {
       isLoaded: false,
+      appBar: false,
       logo: Logo,
       items: [
         {
@@ -72,9 +75,15 @@ export default {
       title: 'KireiHana'
     }
   },
+  computed: {
+    isLoading () {
+      return this.$store.getters.isLoading
+    }
+  },
   mounted () {
     setTimeout(() => {
       this.isLoaded = true
+      this.appBar = true
     }, 2000)
   }
 }
