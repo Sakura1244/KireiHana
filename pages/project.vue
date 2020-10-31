@@ -28,10 +28,10 @@
         <v-slide-y-transition>
           <v-layout v-show="loaded" row wrap>
             <v-flex v-for="(product, index) in products" :key="index" xs12 md6 class="pa-2">
-              <v-card :min-height="270" class="pa-2 pa-md-4" outlined>
+              <v-card :min-height="300" class="pa-2 pa-md-4" outlined>
                 <youtube
                   player-width="100%"
-                  :player-height="270"
+                  :player-height="300"
                   :video-id="product.snippet.resourceId.videoId"
                 />
               </v-card>

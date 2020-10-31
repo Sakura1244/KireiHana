@@ -35,7 +35,8 @@ export const actions = {
     const params = {
       part: 'snippet,contentDetails',
       playlistId: process.env.playlistId,
-      key: process.env.key
+      key: process.env.key,
+      maxResults: 120
     }
     try {
       dispatch('setLoading', true)

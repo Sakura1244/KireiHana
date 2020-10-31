@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-app-bar
+    <!-- <v-app-bar
       v-model="appBar"
       fixed
       app
@@ -8,18 +8,7 @@
       flat
       hide-on-scroll
       color="primary"
-    >
-      <v-container grid-list-xs>
-        <v-layout row wrap justify-center align-center>
-          <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
-          <!-- <v-avatar class="mr-2 logo">
-            <v-img :src="logo" />
-          </v-avatar> -->
-
-          <!-- <v-toolbar-title v-text="title" /> -->
-        </v-layout>
-      </v-container>
-    </v-app-bar>
+    /> -->
 
     <v-main v-if="isLoaded">
       <nuxt />
@@ -32,7 +21,7 @@
       <div class="particle-4" />
     </div>
 
-    <v-app-bar
+    <!-- <v-app-bar
       v-model="appBar"
       fixed
       app
@@ -41,7 +30,7 @@
       bottom
       hide-on-scroll
       color="primary"
-    />
+    /> -->
 
     <v-overlay :value="!isLoaded" color="primarylight" opacity="1">
       <v-avatar class="logo_loading" size="100">
