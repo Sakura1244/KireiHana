@@ -10,3 +10,9 @@
     transition: 0.35s ease;
   }
 }
+
+@media (min-width: 1904px) {
+  .container {
+    max-width: 1440px !important;
+  }
+}
