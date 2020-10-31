@@ -46,8 +46,7 @@
                 <v-card-text class="text-center text-md-left">
                   <div class="text-container px-2 px-md-6">
                     <p>
-                      Known as 綺麗花/Kireihana/ is an AMV Team from Indonesia.
-                      as in Indonesia Means "Bunga yang indah"
+                      {{ product.desc }}
                     </p>
                   </div>
                 </v-card-text>
@@ -65,12 +64,14 @@ export default {
   data: () => ({
     menu: [
       {
-        text: 'About',
-        link: 'about'
+        text: 'Member',
+        link: 'member',
+        desc: 'great people who have contributed to Kireihana (✿◠‿◠) '
       },
       {
-        text: 'Products',
-        link: 'products'
+        text: 'Project',
+        link: 'project',
+        desc: 'some of the projects we have made, hopefully inspired :)'
       }
     ],
     loaded: false
