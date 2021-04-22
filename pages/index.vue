@@ -52,9 +52,29 @@
                 </p>
                 <p>this team was created because the leader himself really like <b>“Hanami Season”</b> or <b>“Cherry Blossom Viewing”</b>, The pops of pink mark the ending of winter and signify the beginning of spring. Due to their quick blooming season, cherry blossoms also symbolize the transience of life</p>
               </div>
-              <!-- <v-btn depressed color="primary" class="ma-auto mx-md-4">
-                Join us
-              </v-btn> -->
+              <div class="mt-8 mx-4">
+                <template v-for="(social, index) in links">
+                  <v-btn
+                    v-if="social.sidelink === 'FALSE' && social.visible === 'TRUE'"
+                    :key="index"
+                    depressed
+                    :disabled="social.disabled === 'TRUE'"
+                    color="primary"
+                    class="text ma-1 text-capitalize"
+                    target="_blank"
+                    :href="social.link"
+                  >
+                    <v-icon
+                      v-if="social.icon"
+                      left
+                      dark
+                    >
+                      {{ social.icon }}
+                    </v-icon>
+                    {{ social.text }}
+                  </v-btn>
+                </template>
+              </div>
             </v-card-text>
           </v-card>
         </v-slide-y-reverse-transition>
@@ -79,20 +99,23 @@
             >
               <v-icon>mdi-chevron-right</v-icon>
             </v-btn>
-            <v-btn
-              v-for="(social, index) in socials"
-              :key="index"
-              class="ma-2 white--text"
-              small
-              depressed
-              fab
-              color="primarydark"
-              :href="social.link"
-              target="_blank"
-              link
-            >
-              <v-icon>{{ social.icon }}</v-icon>
-            </v-btn>
+            <template v-for="(social, index) in links">
+              <v-btn
+                v-if="social.sidelink === 'TRUE' && social.visible === 'TRUE'"
+                :key="index"
+                class="ma-2 white--text"
+                small
+                depressed
+                :disabled="social.disabled === 'TRUE'"
+                fab
+                color="primarydark"
+                :href="social.link"
+                target="_blank"
+                link
+              >
+                <v-icon>{{ social.icon }}</v-icon>
+              </v-btn>
+            </template>
           </v-layout>
         </v-slide-y-transition>
       </v-flex>
@@ -105,7 +128,8 @@ import {
   KinesisContainer,
   KinesisElement
 } from 'vue-kinesis'
-import LogoText from '@/static/logo/logo_text.png'
+import LogoText from '@/static/logo/logo.png'
+import LogoTextWhite from '@/static/logo/logo_white.png'
 
 export default {
   components: {
@@ -131,14 +155,22 @@ export default {
         text: 'Instagram',
         icon: 'mdi-instagram',
         link: 'https://www.instagram.com/kireihanateam/'
+      },
+      {
+        text: 'Discord',
+        icon: 'mdi-discord',
+        link: 'https://discord.gg/MkFsukEkhN'
       }
     ]
   }),
   computed: {
+    links () {
+      return this.$store.getters.links || []
+    },
     logo () {
       switch (this.$vuetify.theme.dark) {
         case false: return LogoText
-        default: return LogoText
+        default: return LogoTextWhite
       }
     },
     widthLogo () {

@@ -35,11 +35,11 @@
             class="pa-2"
           >
             <v-slide-y-reverse-transition>
-              <v-card v-show="loaded" :to="`/${product.link}`" class="pa-2 pa-md-6" outlined>
+              <v-card v-show="loaded" :to="`/${product.link}`" class="pa-2 pa-md-4 overflow--hidden card--hover" outlined>
                 <v-card-title class="title-container justify-center justify-md-start" primary-title>
                   <div>
                     <h2 class="text-h5 text-lg-h4 text-truncate">
-                      「 {{ product.text }} <span>Team 」</span>
+                      「 {{ product.text }} <span>{{ product.category }} 」</span>
                     </h2>
                   </div>
                 </v-card-title>
@@ -50,6 +50,7 @@
                     </p>
                   </div>
                 </v-card-text>
+                <v-img class="particle-hover" width="150" :src="logo" />
               </v-card>
             </v-slide-y-reverse-transition>
           </v-flex>
@@ -59,19 +60,55 @@
   </v-container>
 </template>
 
+<style lang="scss">
+.card--hover:hover {
+  .particle-hover {
+    bottom: 0;
+    right: 0;
+    transform: rotate(0deg) scale(2);
+  }
+}
+
+.particle-hover {
+  position: absolute;
+  transition: 0.7s ease !important;
+  bottom: -100%;
+  right: 0;
+  opacity: 0.1;
+  transform: rotate(180deg) scale(1);
+}
+</style>
+
 <script>
+import Logo from '@/static/logo/logo_flat.png'
+
 export default {
   data: () => ({
+    logo: Logo,
     menu: [
       {
         text: 'Member',
+        category: 'Team',
         link: 'member',
-        desc: 'great people who have contributed to Kireihana (✿◠‿◠) '
+        desc: 'Great people who have contributed to Kireihana Team'
       },
       {
-        text: 'Project',
-        link: 'project',
-        desc: 'some of the projects we have made, hopefully inspired :)'
+        text: 'KireiHana',
+        category: 'MEPS',
+        link: 'project/mep',
+        desc: 'KireiHana Multi Editor Project'
+      },
+      {
+        text: 'Dedication',
+        category: 'Project',
+        link: 'project/dedication',
+        desc: 'Some of the projects we have made, hopefully inspired'
+      },
+      {
+        text: 'Collab',
+        category: 'Project',
+        link: 'project/collab',
+        desc: 'Kireihana Collaboration Project'
       }
     ],
     loaded: false

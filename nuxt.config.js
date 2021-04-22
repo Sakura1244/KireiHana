@@ -3,11 +3,6 @@ dotenv.config()
 
 export default {
   /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
-  mode: 'universal',
-  /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
@@ -24,7 +19,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap' }
     ]
   },
   /*
@@ -38,6 +34,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/styles.scss',
     '~/assets/transition.scss',
     '~/assets/vuetify-overide.scss'
   ],
@@ -96,7 +93,6 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/styles.scss'],
     optionsPath: './config/vuetify.options.js'
   },
   /*

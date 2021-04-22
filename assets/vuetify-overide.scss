@@ -1,3 +1,7 @@
+// Custom Variable
+@import './variables';
+@import './mixins';
+
 // Vuetify class overide
 .v-main__wrap {
   margin: auto;
@@ -5,13 +9,38 @@
 }
 
 .v-application {
+  font-family: 'Inter', 'Roboto', sans-serif !important;
   transition: 0.35s ease;
   .theme--light, .theme--dark {
     transition: 0.35s ease;
   }
 }
 
-@media (min-width: 1904px) {
+
+// @media (min-width: 1904px) {
+//   .container {
+//     max-width: 1440px !important;
+//   }
+// }
+
+// Vuetify class overide
+.container {
+  width: 100%;
+  padding: 12px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: $md) {
+  .container {
+    max-width: 900px;
+  }
+}
+@media (min-width: $lg) {
+  .container {
+    max-width: 1185px;
+  }
+}
+@media (min-width: $xl) {
   .container {
     max-width: 1440px !important;
   }

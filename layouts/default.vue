@@ -15,8 +15,8 @@
     </v-main>
 
     <div class="background-cover">
-      <!-- <v-img class="particle-1" width="200" :src="logo" />
-      <v-img class="particle-2" width="200" :src="logo" /> -->
+      <!-- <v-img class="particle-1" width="100" :src="logo" />
+      <v-img class="particle-2" width="150" :src="logo" /> -->
       <div class="particle-3" />
       <div class="particle-4" />
     </div>
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import Logo from '@/static/logo/logo.png'
+import Logo from '@/static/logo/logo_flat.png'
 
 export default {
   data () {
@@ -49,18 +49,6 @@ export default {
       isLoaded: false,
       appBar: false,
       logo: Logo,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
       title: 'KireiHana'
     }
   },

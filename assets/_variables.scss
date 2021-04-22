@@ -38,3 +38,9 @@ $rounded-xl: 72px;
 // Transition
 $transition-unit: 0.2s;
 $transition-bg-theme: 0s ease background-color, $transition-unit ease transform, $transition-unit ease left, $transition-unit ease right, $transition-unit ease box-shadow, $transition-unit ease max-width, $transition-unit ease width, $transition-unit ease width;
+
+// Breakpoint
+$sm: 600px;
+$md: 960px;
+$lg: 1264px;
+$xl: 1904px;
